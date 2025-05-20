@@ -11,7 +11,6 @@
 		"import-typescript": "ts-node ./build/importTypescript",
 		"playwright-install": "node ./node_modules/playwright/install.js",
 		"playwright-install-deps": "playwright install-deps",
-		"postinstall": "ts-node ./build/postinstall",
 		"prettier-check": "prettier --check .",
 		"prettier": "prettier --write .",
 		"pretty-quick": "pretty-quick --staged",
@@ -27,8 +26,8 @@
 		"deps-all-install": "ts-node ./build/npm/installAll",
 		"update-actions": "pin-github-action ./.github/workflows/website.yml",
 		"watch": "tsc -w -p ./src",
-		"build": "ts-node ./build/build-languages",
-		"build-monaco-editor": "npm run build && ts-node ./build/build-monaco-editor"
+		"build": "ts-node ./build/build-languages.ts",
+		"build-monaco-editor": "npm run build && ts-node ./build/build-monaco-editor.ts"
 	},
 	"typings": "./esm/vs/editor/editor.api.d.ts",
 	"module": "./esm/vs/editor/editor.main.js",
@@ -77,5 +76,10 @@
 	"alias": {
 		"process": false,
 		"buffer": false
+	},
+	"contributes": {
+		"editor.contribution": [
+			{ "id": "editor.contrib.diffAction", "instance": "vs/editor/contrib/diffAction/diffActionController" }
+		]
 	}
 }

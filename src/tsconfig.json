@@ -4,6 +4,8 @@
 		"lib": ["dom", "es5", "es2015.collection", "es2015.promise", "es2015.iterable"],
 		"module": "amd",
 		"moduleResolution": "node",
+		"baseUrl": ".",
+		"paths": { "vs/*": ["vs/*"] },
 		"outDir": "../out/languages/amd-tsc",
 		"strict": true,
 		"target": "es5",
